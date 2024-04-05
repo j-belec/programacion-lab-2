@@ -10,6 +10,10 @@ int main() {
    int acuProm = 0;
    int cantArribaProm = 0;
    float prom;
+   int acuPromAp = 0;
+   int cantPromAp = 0;
+   float promAp;
+
 
    cout << "Ingrese la cantidad de alumnos: ";
    cin >> cantAlumnos;
@@ -34,15 +38,24 @@ int main() {
         notasArr[i] = nota;
 
         acuProm += nota;
+
+        if(nota > 6) {
+            cantPromAp ++;
+            acuPromAp += nota;
+        }
    }
 
    prom = acuProm / cantAlumnos;
+   promAp = acuPromAp / cantPromAp;
 
    for(int i = 0; i < cantAlumnos; i++) {
         if(notasArr[i] > prom) cantArribaProm++;
+        if(notasArr[i] > promAp) {
+            cout << nombresArr[i] << " " << apellidosArr[i] << endl;
+        }
    }
 
-   cout << "Cant alumnos arriba del prom: " << cantArribaProm;
+   cout << "Cant alumnos arriba del prom: " << cantArribaProm << endl;
 
    return 0;
 }
